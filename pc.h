@@ -24,9 +24,9 @@ extern int DebugLevel;
 #define IF_DEBUG(level, action) if (DebugLevel >= level) { action; }
 
 // bool type might not be available everywhere
-#if (SIZEOF_BOOL == 0)
+#ifndef __cplusplus
 typedef enum {false, true} bool;
-#endif /* SIZEOF_BOOL */
+#endif
 
 // Mode types
 typedef enum {
