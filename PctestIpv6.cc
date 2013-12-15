@@ -16,6 +16,9 @@ static char rcsid[] = "$Id: PctestIpv6.cc 1082 2005-02-12 19:40:04Z bmah $";
 //
 // Class of IPv6 tests
 //
+#if defined(__APPLE__)
+#define __APPLE_USE_RFC_3542 1
+#endif
 
 #include <sys/types.h>
 #include <sys/param.h>
