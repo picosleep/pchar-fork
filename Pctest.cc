@@ -32,6 +32,11 @@ static char rcsid[] = "$Id: Pctest.cc 1082 2005-02-12 19:40:04Z bmah $";
 #include <sys/time.h>
 
 #ifdef HAVE_PCAP
+#if defined(__APPLE__)
+#define PCAP_DONT_INCLUDE_PCAP_BPF_H 1
+#include <net/bpf.h>
+#include <sys/ioctl.h>
+#endif
 #include <pcap.h>
 #ifdef __OpenBSD__
 #include <net/if.h>
@@ -41,7 +46,12 @@ static char rcsid[] = "$Id: Pctest.cc 1082 2005-02-12 19:40:04Z bmah $";
 #include <net/ethernet.h>
 #endif
 #ifdef HAVE_BPF
+#if defined(__APPLE__)
+#include <net/bpf.h>
 #include <sys/ioctl.h>
+#else
+#include <sys/ioctl.h>
+#endif
 #endif /* HAVE_BPF */
 #endif /* HAVE_PCAP */
 
