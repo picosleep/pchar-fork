@@ -17,7 +17,7 @@ public:
   bool	IsValid(void);
 
   const char *	GetDescription(void) const;
-  const char *	GetIfInfo::GetName(void) const;
+  const char *	GetName(void) const;
   const char *	GetContact(void) const;
   const char *	GetLocation(void) const;
   const char *	GetIfDescription(void) const;
