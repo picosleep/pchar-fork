@@ -21,7 +21,13 @@ static char rcsid[] = "$Id: PctestIpv4Tcp.cc 1082 2005-02-12 19:40:04Z bmah $";
 #include <netdb.h>
 #include <netinet/in.h>
 #include <netinet/in_systm.h>
+#ifndef __USE_BSD
+#define __USE_BSD 1 /* use BSD version of IP header structure */
+#endif
 #include <netinet/ip.h>
+#ifndef __FAVOR_BSD
+#define __FAVOR_BSD 1 /* use BSD version of TCP/UDP header structure */
+#endif
 #include <netinet/tcp.h>
 #include <netinet/ip_icmp.h>
 #include <arpa/inet.h>
