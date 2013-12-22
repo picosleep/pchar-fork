@@ -31,6 +31,9 @@ static char rcsid[] = "$Id: PctestIpv6Tcp.cc 1082 2005-02-12 19:40:04Z bmah $";
 #include <sys/socket.h>
 #include <sys/uio.h>
 #include <netdb.h>
+#ifndef __USE_BSD
+#define __USE_BSD 1 /* use BSD version of IP header structure */
+#endif
 #include <netinet/in.h>
 
 #ifdef NEED_NRL_IPV6_HACK
@@ -47,6 +50,9 @@ static char rcsid[] = "$Id: PctestIpv6Tcp.cc 1082 2005-02-12 19:40:04Z bmah $";
 #include <netinet/icmp6.h>
 #endif /* NEED_NRL_IPV6_HACK */
 
+#ifndef __FAVOR_BSD
+#define __FAVOR_BSD 1 /* use BSD version of TCP/UDP header structure */
+#endif
 #include <netinet/tcp.h>
 #include <arpa/inet.h>
 
