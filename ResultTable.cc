@@ -14,9 +14,9 @@ static char rcsid[] = "$Id: ResultTable.cc 1082 2005-02-12 19:40:04Z bmah $";
 // others. This software is provided as-is. SANDIA DISCLAIMS ANY
 // WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
 //
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <cmath>
+#include <cstdlib>
+#include <cstdint>
 
 #include "pc.h"
 #include "ResultTable.h"
