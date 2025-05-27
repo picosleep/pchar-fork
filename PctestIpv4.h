@@ -77,7 +77,7 @@ class PctestIpv4 : public Pctest {
     virtual char *GetPrintableAddress();
     virtual char *GetPrintableAddress(void *a);
     virtual char *GetName(void *a);
-    virtual char *GetAddressFamilyString() { return "AF_INET"; };
+    virtual const char *GetAddressFamilyString() { return "AF_INET"; };
     virtual int GetAddressFamily() { return (AF_INET); };
     
   protected:

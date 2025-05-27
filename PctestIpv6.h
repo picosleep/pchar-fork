@@ -82,7 +82,7 @@ class PctestIpv6 : public Pctest {
     virtual char *GetPrintableAddress();
     virtual char *GetPrintableAddress(void *a);
     virtual char *GetName(void *a);
-    virtual char *GetAddressFamilyString() { return "AF_INET6"; }
+    virtual const char *GetAddressFamilyString() { return "AF_INET6"; }
     virtual int GetAddressFamily() { return (AF_INET6); }
     
   protected:

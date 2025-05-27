@@ -84,6 +84,7 @@ int PctestIpv4File::SetOriginName(char *t) {
 	fprintf(stderr, "Couldn't allocate memory for origin hostname.\n");
 	return -1;
     }
+    return 0;
 }
 
 //

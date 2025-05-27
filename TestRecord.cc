@@ -53,7 +53,7 @@ char *TestRecord::htoa(Pctest *pct)
 #else
     sprintf(buffer2, 
 #endif /* HAVE_SNPRINTF */
-      "probe t %ld.%06ld ", tvstart.tv_sec, tvstart.tv_usec);
+      "probe t %ld.%06d ", tvstart.tv_sec, tvstart.tv_usec);
     strncat(buffer, buffer2, buflen);
 
 #ifdef HAVE_SNPRINTF
@@ -61,7 +61,7 @@ char *TestRecord::htoa(Pctest *pct)
 #else
     sprintf(buffer2, 
 #endif /* HAVE_SNPRINTF */
-      "h %d b %d addr %s res %d rtt %ld.%06ld rb %d", hops, size, pct->GetPrintableAddress(icmpSourceAddress), result, tv.tv_sec, tv.tv_usec, replsize);
+      "h %d b %d addr %s res %d rtt %ld.%06d rb %d", hops, size, pct->GetPrintableAddress(icmpSourceAddress), result, tv.tv_sec, tv.tv_usec, replsize);
     strncat(buffer, buffer2, buflen);
 
     return buffer;

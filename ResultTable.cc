@@ -44,7 +44,7 @@ ResultTable::ResultTable(unsigned int inc, unsigned int m, unsigned int b,
     // can't handle "new (footype *)[bar]".  We're trying to do:
     // data = new (double *) [columns];
     typedef double *DoublePtr;
-    data = new (double *[columns]);
+    data = new double *[columns];
     if (data == NULL) {
 	fprintf(stderr, "Couldn't allocate data array for a ResultTable\n");
 	exit(1);
@@ -909,8 +909,8 @@ void ResultTable::lmsint(double &a, double &b, double &r2)
 	l = 0;
 	for (i = 0; i < columns; i++) {
 	    if (partialmins[i] != timeoutresult) {
-		residuals[l] = abs(partialmins[i] - 
-				   ((currentslope * 
+	      residuals[l] = abs(static_cast<int>(partialmins[i]) -
+				 static_cast<int>((currentslope * 
 				     column2size(i) /
 				     slopescale) +
 				    currentintercept));
@@ -930,7 +930,8 @@ void ResultTable::lmsint(double &a, double &b, double &r2)
 	l = 0;
 	for (i = 0; i < columns; i++) {
 	    if (partialmins[i] != timeoutresult) {
-		ys[l] = abs(partialmins[i] - mediany);
+	      ys[l] = abs(static_cast<int>(partialmins[i]) -
+			  static_cast<int>(mediany));
 		l++;
 	    }
 	}

@@ -67,7 +67,7 @@ Pctest::Pctest()
     initialized = 0;
     TimeSyscall(syscallTime);
     
-    IF_DEBUG(3, fprintf(stderr, "syscallTime.tv_usec = %ld\n", syscallTime.tv_usec));
+    IF_DEBUG(3, fprintf(stderr, "syscallTime.tv_usec = %d\n", syscallTime.tv_usec));
     
 #ifdef HAVE_PCAP
     // If we're running with pcap enabled, set this up.
@@ -208,7 +208,7 @@ char *Pctest::GeneratePayload(int size)
 u_short
 Pctest::InCksum(u_short *addr, int len)
 {
-    register int sum = 0;
+    int sum = 0;
     u_short checksum;
     
     while (len > 1)  {
