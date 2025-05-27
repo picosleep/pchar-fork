@@ -143,7 +143,7 @@ SRCFILES= \
 OTHERFILES= \
 	README CHANGES FAQ pchar.8 \
 	Makefile.in Makefile.depend.in \
-	VERSION \
+	VERSION.txt \
 	aclocal.m4 \
 	config.guess config.sub configure configure.in install-sh mkinstalldirs
 
@@ -160,11 +160,11 @@ $(A.OUT): $(OBJ)
 	$(LD) $(OBJ) $(LDFLAGS) $(LIBS) -o $(A.OUT) 
 
 version.o: version.cc
-version.cc: VERSION
+version.cc: VERSION.txt
 	@$(RM) -f $@
 	@$(TOUCH) $@
 	@echo "# Generating $@ for this build..."
-	@echo "static char version[] = \"$(A.OUT) `cat $(srcdir)/VERSION`\";" >> $@
+	@echo "static char version[] = \"$(A.OUT) `cat $(srcdir)/VERSION.txt`\";" >> $@
 	@echo "static char copyright[] = " >> $@
 	@echo '"This work was first produced by an employee of Sandia National"' >> $@
 	@${ECHOQNL} >> $@
